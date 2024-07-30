@@ -12,12 +12,20 @@ body {
 
 #container {
     display: flex;
+    flex-direction: column;
+    width:600px;
+    height: 600px; 
+
+}
+
+.squareContainer{
+    display: flex;
+    flex:1;
 }
 
 .square {
-    /* margin: 1px; */
-    width: 40px;
-    height: 40px;
+    display: flex;
     background-color: red;
-    align-content: center;
+    flex: 1;
+
 }

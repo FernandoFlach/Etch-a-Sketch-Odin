@@ -1,27 +1,42 @@
 
 const container = document.querySelector("#container");
+const button = document.querySelector("#button");
 
-for (let i = 0; i< 16; i++){
+button.addEventListener("click", createGrid);
 
-    let squareContainer = document.createElement("div")
 
-    for (let i = 0; i < 16; i++) {
+function createGrid() {
 
-        let square = document.createElement("div");
-        square.classList.add("square");
-        //square.innerText = "Test"
-        square.addEventListener("mouseover", () => {square.style.backgroundColor = "black"})
-    
-        squareContainer.appendChild(square);
+    container.innerHTML = "<div></div>"
+
+    let size = prompt("What size is the grid?");
+
+    while (size > 100){
+        size = prompt("What size is the grid?");
     }
-    
-    container.appendChild(squareContainer);
 
-    let hovered = document.querySelector(".square:hover");
-    if (hovered != null) {
-        hovered.textContent = "hovered";
-        hovered.style.backgroundColor = "black";
+    for (let i = 0; i < size; i++){
+
+        let squareContainer = document.createElement("div");
+        squareContainer.classList.add("squareContainer");
+
+        for (let i = 0; i < size; i++) {
+
+            let square = document.createElement("div");
+            square.classList.add("square");
+            //square.innerText = "Test"
+            square.addEventListener("mouseover", () => {square.style.backgroundColor = "black"})
+        
+            squareContainer.appendChild(square);
+        }
+        
+        container.appendChild(squareContainer);
+
+        let hovered = document.querySelector(".square:hover");
+        if (hovered != null) {
+            hovered.textContent = "hovered";
+            hovered.style.backgroundColor = "black";
+        }
+    
     }
- 
 }
-
